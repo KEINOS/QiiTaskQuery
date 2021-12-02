@@ -1,0 +1,51 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "http://github.com/KEINOS/QiiTaskQuery/query.schema.json",
+    "title": "QiiTask Query Schema Definition",
+    "description": "query.json のスキーマ定義ファイル",
+    "type": "object",
+    "required": [
+        "task",
+        "likes"
+    ],
+    "properties": {
+        "task": {
+            "$ref": "/schemas/questions"
+        },
+        "likes": {
+            "$ref": "/schemas/questions"
+        }
+    },
+    "$defs": {
+        "questions": {
+            "$id": "/schemas/questions",
+            "type": "object",
+            "properties": {
+                "description": {
+                    "type": "string",
+                    "minLength": 2
+                },
+                "客観的な質問": {
+                    "$ref": "/schemas/question"
+                },
+                "主観的な質問": {
+                    "$ref": "/schemas/question"
+                }
+            },
+            "required": [
+                "description",
+                "客観的な質問",
+                "主観的な質問"
+            ]
+        },
+        "question": {
+            "$id": "/schemas/question",
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "minItems": 1,
+            "uniqueItems": true
+        }
+    }
+}

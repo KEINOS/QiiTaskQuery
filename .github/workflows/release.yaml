@@ -1,0 +1,30 @@
+# =============================================================================
+#  Workflow to release on IPFS
+# =============================================================================
+name: Release
+
+on:
+  workflow_dispatch:
+  release:
+
+jobs:
+  ipfsrelease:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Upload to IPFS via Pinata
+        uses: aquiladev/ipfs-action@v1
+        id: pinata
+        with:
+          path: ./query.json
+          service: pinata
+          pinataKey: ${{ secrets.PINATA_KEY }}
+          pinataSecret: ${{ secrets.PINATA_SECRET }}
+          pinataPinName: qiitask-query
+          verbose: true
+
+      - name: Echo
+        run: |
+          echo ${{ steps.pinata.outputs.hash }}

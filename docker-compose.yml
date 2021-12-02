@@ -1,0 +1,18 @@
+# =============================================================================
+#  JSON データのバリデーション用 Docker-Compose ファイル
+# =============================================================================
+# Usage:
+#   docker-compose run validator ./query.schema.json ./query.json
+#
+# 上記はローカルの query.schema.json を使って query.json のバリデーションをコン
+# テナ上で検証します。
+version: "3.9"
+services:
+  # Service tidy updates the module versions in go.mod to the latest.
+  validator:
+    build:
+      context: ./.github
+      dockerfile: ./Dockerfile
+    volumes:
+      - .:/workspaces
+    entrypoint: [ "/usr/local/bin/validator" ]

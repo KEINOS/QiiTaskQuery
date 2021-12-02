@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"name": "QiiTaskQuery Repo Root",
+			"path": "../.."
+		},
+		{
+			"name": "Validator Go Source",
+			"path": "."
+		}
+	]
+}

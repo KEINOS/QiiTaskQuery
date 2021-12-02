@@ -1,0 +1,27 @@
+# =============================================================================
+#  Workflow to validate JSON with JSON schema
+# =============================================================================
+name: IsValidJSON
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  validation:
+    name: Run tests in scontainer
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
+      - name: Build Validator
+        run: docker-compose build
+
+      - name: Run validator
+        run: docker-compose run validator ./query.schema.json ./query.json
