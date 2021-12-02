@@ -11,6 +11,8 @@ on:
   pull_request:
     branches:
       - main
+env:
+  PATH_CACHE: /tmp/docker-img-arch
 
 jobs:
   validation:
@@ -20,8 +22,40 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v2
 
-      - name: Build Validator
-        run: docker-compose build
+      - name: Create Docker image tag
+        id: imgtag
+        run: |
+          : # Update image on Dockerfile or month change
+          HASH_IMAGE=${{ hashFiles('./.github/Dockerfile') }}
+          VARIANT=$(TZ=UTC-9 date '+%Y%m')
+          TAG="${HASH_IMAGE:0:7}:${VARIANT}"
+          PATH_TAR=${{ env.PATH_CACHE }}"/tar"
+          echo "::set-output name=TAG::${TAG}"
+          echo "::set-output name=PATH_TAR::${PATH_TAR}"
+
+      - name: Enable Cache
+        id: cache
+        uses: actions/cache@v2
+        with:
+          path: ${{ env.PATH_CACHE }}
+          key: ${{ steps.imgtag.outputs.TAG }}
+
+      - name: Load Docker images if exist
+        if: steps.cache.outputs.cache-hit == 'true'
+        run: |
+          docker load --input ${{ steps.imgtag.outputs.PATH_TAR }}/qiitaskquery_validator.tar
+
+      - name: Build Docker image if no-exists
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: |
+          mkdir -p ${{ steps.imgtag.outputs.PATH_TAR }}
+          : # Build container image
+          docker-compose build
+
+      - name: Save built images if no-exists
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: |
+          docker save --output ${{ steps.imgtag.outputs.PATH_TAR }}/qiitaskquery_validator.tar qiitaskquery_validator:latest
 
       - name: Run validator
         run: docker-compose run validator ./query.schema.json ./query.json
