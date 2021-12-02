@@ -35,6 +35,5 @@ jobs:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           file: ipfs_cid.txt
           asset_name: ipfs_cid.txt
-          tag: ${{ github.ref }}
           overwrite: true
           body: "IPFS CID: ${{ steps.pinata.outputs.hash }}"
