@@ -15,9 +15,6 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
-        with:
-          persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal access token.
-          fetch-depth: 0 # otherwise, there would be errors pushing refs to the destination repository.
 
       - name: Create Docker image tag
         id: imgtag
@@ -56,17 +53,3 @@ jobs:
 
       - name: Run validator
         run: docker-compose run validator ./query.schema.json ./query.json
-
-      - name: Update README
-        run: docker-compose run gendoc
-
-      - name: Commit changes
-        run: |
-          git config --local user.name "github-actions[bot]"
-          git config --local user.email "github-actions[bot]@users.noreply.github.com"
-          git commit -m "docs: update README" -a || echo 'done'
-
-      - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
