@@ -27,12 +27,16 @@
 				"path": "/bin/bash",
 				"args": []
 			}
-		}
+		},
+		"shellformat.path": "/go/bin/shfmt",
+		"shellcheck.executablePath": "go/bin/shellcheck"
 	},
 
 	// Add the IDs of extensions you want installed when the container is created.
 	"extensions": [
-		"golang.Go"
+		"golang.Go",
+		"foxundermoon.shell-format",
+		"timonwong.shellcheck"
 	],
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
