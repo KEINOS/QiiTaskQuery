@@ -8,7 +8,7 @@ QiiTask コマンドに同梱される質問一覧専用のリポジトリです
 
 - 質問一覧ファイル
     - ソース: [query.json](query.json)（ダウンロード: [https://git.io/JMPFq](https://git.io/JMPFq)）
-    - スキーマ定義: [query.schama.json](query.schama.json)（ダウンロード: [https://git.io/JMPF7](https://git.io/JMPF7)）
+    - スキーマ定義: [query.schema.json](query.schema.json)（ダウンロード: [https://git.io/JMPF7](https://git.io/JMPF7)）
     - IPFS CID: `%%IPFS_CID%%`（ダウンロード: [IPFS Gateway](https://ipfs.io/ipfs/%%IPFS_CID%%)）
 
 ## コントリビュート
