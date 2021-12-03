@@ -59,3 +59,9 @@ jobs:
 
       - name: Run validator
         run: docker-compose run validator ./query.schema.json ./query.json
+
+      - name: Update README
+        run: |
+          docker-compose run gendoc
+          git add .
+          git commit -m "docs: update README" || echo 'done'

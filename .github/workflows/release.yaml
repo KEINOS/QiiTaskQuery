@@ -27,14 +27,4 @@ jobs:
 
       - name: Echo CID
         run: |
-          echo ${{ steps.pinata.outputs.hash }} > ipfs_cid.txt
-
-      - name: Upload binaries to release
-        uses: svenstaro/upload-release-action@v2
-        with:
-          repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: ipfs_cid.txt
-          asset_name: ipfs_cid.txt
-          tag: ${{ github.ref }}
-          overwrite: true
-          body: "IPFS CID: ${{ steps.pinata.outputs.hash }}"
+          echo ${{ steps.pinata.outputs.hash }}

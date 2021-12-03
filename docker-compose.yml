@@ -16,3 +16,10 @@ services:
     volumes:
       - .:/workspaces
     entrypoint: [ "/usr/local/bin/validator" ]
+  # IPFS
+  gendoc:
+    image: ipfs/go-ipfs:latest
+    volumes:
+      - .:/workspaces
+    working_dir: /workspaces
+    entrypoint: [ "/workspaces/.github/gen_readme.sh" ]
