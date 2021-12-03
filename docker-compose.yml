@@ -16,7 +16,7 @@ services:
     volumes:
       - .:/workspaces
     entrypoint: [ "/usr/local/bin/validator" ]
-  # IPFS
+  # Update README
   gendoc:
     image: ipfs/go-ipfs:latest
     volumes:

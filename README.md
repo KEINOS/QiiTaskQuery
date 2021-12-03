@@ -8,14 +8,15 @@ QiiTask コマンドに同梱される質問一覧専用のリポジトリです
 
 - 質問一覧ファイル
     - ソース: [query.json](query.json)（ダウンロード: [https://git.io/JMPFq](https://git.io/JMPFq)）
-    - スキーマ定義: [query.schama.json](query.schama.json)（ダウンロード: [https://git.io/JMPF7](https://git.io/JMPF7)）
+    - スキーマ定義: [query.schema.json](query.schema.json)（ダウンロード: [https://git.io/JMPF7](https://git.io/JMPF7)）
     - IPFS CID: `QmWBf2hYCzFWtQp5w5NLD3oVSdV6nmdvFAdG4KGgsoBMNh`（ダウンロード: [IPFS Gateway](https://ipfs.io/ipfs/QmWBf2hYCzFWtQp5w5NLD3oVSdV6nmdvFAdG4KGgsoBMNh)）
 
 ## コントリビュート
 
 - PR 先: `main` ブランチ
 - イタズラの類いでなければ、[CI](./github/workflows/) さえ通ればマージ致します。
-- `docker-compose` がインストールされていればローカルでテストできます。
+- `docker-compose` がインストールされていれば、ローカルでテストできます。
+
     ```bash
     docker-compose run validator ./query.schema.json ./query.json
     ```
