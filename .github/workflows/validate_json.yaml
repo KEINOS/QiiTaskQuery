@@ -56,6 +56,12 @@ jobs:
 
       - name: Update README
         run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
           docker-compose run gendoc
-          git add .
-          git commit -m "docs: update README" || echo 'done'
+          git commit -m "docs: update README" -a || echo 'done'
+
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
