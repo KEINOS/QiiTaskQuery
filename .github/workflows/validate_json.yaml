@@ -3,11 +3,8 @@
 # =============================================================================
 name: IsValidJSON
 
-on:
-  workflow_dispatch:
-  push:
-    branches:
-      - main
+on: [push, pull_request]
+
 env:
   PATH_CACHE: /tmp/docker-img-arch
 
