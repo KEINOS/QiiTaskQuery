@@ -64,4 +64,4 @@ jobs:
         run: |
           docker-compose run gendoc
           git add .
-          git commit -m "docs: update README"
+          git commit -m "docs: update README" || echo 'done'
