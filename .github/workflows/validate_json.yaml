@@ -10,7 +10,7 @@ env:
 
 jobs:
   validation:
-    name: Run tests in scontainer
+    name: Run tests in container
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo

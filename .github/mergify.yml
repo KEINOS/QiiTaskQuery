@@ -1,0 +1,20 @@
+pull_request_rules:
+    - name: automatic merge on CI success and 2 approved reviews
+      conditions:
+        - "#approved-reviews-by>=2"
+        - base=main
+        - check-success=Run tests in container
+        - -draft
+      actions:
+        merge:
+          method: squash
+    - name: automatic merge on CI success if only query.json was changed
+      conditions:
+        - files=query.json
+        - "#files=1"
+        - base=main
+        - check-success=Run tests in container
+        - -draft
+      actions:
+        merge:
+          method: squash
