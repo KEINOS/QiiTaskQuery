@@ -1,6 +1,6 @@
-<!-- Code generated using ./.github/gen_readme.sh; DO NOT EDIT. -->
+<!-- Code generated using ./.github/gen_readme.sh on release; DO NOT EDIT. -->
 [![IsValidJSON](https://github.com/KEINOS/QiiTaskQuery/actions/workflows/validate_json.yaml/badge.svg)](https://github.com/KEINOS/QiiTaskQuery/actions/workflows/validate_json.yaml)
-[![](https://img.shields.io/badge/IPFS-QmQrAoVogCkttqgPZvJAXLJZjHXRQRZjHm2Te7kcyKjQG4-blue?logo=ipfs)](https://ipfs.io/ipfs/QmQrAoVogCkttqgPZvJAXLJZjHXRQRZjHm2Te7kcyKjQG4 "IPFS Gateway")
+[![](https://img.shields.io/badge/IPFS-QmYmWQ4aXjm3sHZUkY8R4HFb3wMXBgop6ptLLsHZXXGVGx-blue?logo=ipfs)](https://ipfs.io/ipfs/QmYmWQ4aXjm3sHZUkY8R4HFb3wMXBgop6ptLLsHZXXGVGx "IPFS Gateway")
 
 # QiiTask Query
 
@@ -9,18 +9,26 @@ QiiTask コマンドに同梱される質問一覧専用のリポジトリです
 - 質問一覧ファイル
     - ソース: [query.json](query.json)（ダウンロード: [https://git.io/JMPFq](https://git.io/JMPFq)）
     - スキーマ定義: [query.schema.json](query.schema.json)（ダウンロード: [https://git.io/JMPF7](https://git.io/JMPF7)）
-    - IPFS CID: `QmQrAoVogCkttqgPZvJAXLJZjHXRQRZjHm2Te7kcyKjQG4`（ダウンロード: [IPFS Gateway](https://ipfs.io/ipfs/QmQrAoVogCkttqgPZvJAXLJZjHXRQRZjHm2Te7kcyKjQG4)）
+    - IPFS CID: `QmYmWQ4aXjm3sHZUkY8R4HFb3wMXBgop6ptLLsHZXXGVGx`（ダウンロード: [IPFS Gateway](https://ipfs.io/ipfs/QmYmWQ4aXjm3sHZUkY8R4HFb3wMXBgop6ptLLsHZXXGVGx)）
 
 ## コントリビュート
 
 - PR 先: `main` ブランチ
-- イタズラの類いでなければ、[CI](./github/workflows/) さえ通ればマージ致します。
-    - 自動マージ: `query.json` のみの変更で、CI をパスした場合は自動的にマージされます。
-- `docker-compose` がインストールされていれば、ローカルでテストできます。
-
+- マージ:
+    - イタズラの類いでなければ、[CI](./github/workflows/) さえ通ればマージ致します。
+    - マージされても、別 PR で修正される可能性があります。
+- 自動マージ:
+    - `query.json` のみの変更で、CI をパスした PR は自動的にマージされます。
+    - 複数ファイルの変更は、2 名以上の[コントリビュータ](https://github.com/KEINOS/QiiTaskQuery/graphs/contributors)の `approved` が付いた PR は自動的にマージされます。
+- テスト:
+    - `docker-compose` がインストールされていれば、事前にローカルでテストできます。
     ```bash
     docker-compose run validator ./query.schema.json ./query.json
     ```
+- バージョニング・ルール:
+    - メジャー ... マイナーバージョンが 10 を超えた場合
+    - マイナー ... JSON スキーマに変更があった場合
+    - パッチ ..... 質問が変更された場合
 
 ## ライセンス
 
