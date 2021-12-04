@@ -3,7 +3,7 @@
 # =============================================================================
 name: IsValidJSON
 
-on: [push, pull_request]
+on: push
 
 env:
   PATH_CACHE: /tmp/docker-img-arch
