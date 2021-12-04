@@ -1,4 +1,4 @@
-<!-- Code generated using ./.github/gen_readme.sh; DO NOT EDIT. -->
+<!-- Code generated using ./.github/gen_readme.sh on release; DO NOT EDIT. -->
 [![IsValidJSON](https://github.com/KEINOS/QiiTaskQuery/actions/workflows/validate_json.yaml/badge.svg)](https://github.com/KEINOS/QiiTaskQuery/actions/workflows/validate_json.yaml)
 [![](https://img.shields.io/badge/IPFS-%%IPFS_CID%%-blue?logo=ipfs)](https://ipfs.io/ipfs/%%IPFS_CID%% "IPFS Gateway")
 

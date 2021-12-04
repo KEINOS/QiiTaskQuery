@@ -20,6 +20,7 @@
         "questions": {
             "$id": "/schemas/questions",
             "type": "object",
+            "description": "客観的な質問は全体のソート用の質問。主観的な質問は部分ソート（全体のソート後の上位 n 件）用の質問",
             "properties": {
                 "description": {
                     "type": "string",

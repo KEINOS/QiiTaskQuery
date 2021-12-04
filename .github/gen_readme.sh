@@ -2,9 +2,12 @@
 # =============================================================================
 #  README Generator / IPFS CID Updator
 # =============================================================================
+#  This script must be called from ../docker-compose.yml
+#  このスクリプトは ../docker-compose.yml から呼び出されることを前提としています。
+#
+#  This script will update the ../README.md with IPFS CID of current query.json.
 #  このシェル・スクリプトは、トップページの README を更新します。query.json の
-#  IFPS CID を現在のものに置き換えます。このスクリプトは ../docker-compose.yml
-#  から呼び出されることを前提としています。
+#  CID (IFPS CID) を現在のものに置き換えます。
 
 NAME_FILE_TARGET="query.json"
 PATH_FILE_TEMPLATE="./.github/README_template.md"
