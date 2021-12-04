@@ -13,8 +13,12 @@ NAME_FILE_TARGET="query.json"
 PATH_FILE_TEMPLATE="./.github/README_template.md"
 PATH_FILE_README="./README.md"
 
+# Get IPFS CID
 ipfs init 2>/dev/null 1>/dev/null
-
 HASH_CID="$(ipfs add --offline --only-hash --quieter "${NAME_FILE_TARGET}")"
 
-sed "s/%%IPFS_CID%%/${HASH_CID}/g" <"$PATH_FILE_TEMPLATE" >"$PATH_FILE_README"
+# Add header
+echo '<!-- Code generated using ./.github/gen_readme.sh on release; DO NOT EDIT. -->' >"$PATH_FILE_README"
+
+# Append template contents
+sed "s/%%IPFS_CID%%/${HASH_CID}/g" <"$PATH_FILE_TEMPLATE" >>"$PATH_FILE_README"
