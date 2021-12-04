@@ -21,10 +21,13 @@ QiiTask コマンドに同梱される質問一覧専用のリポジトリです
     - 複数ファイルの変更は、2 名以上の[コントリビュータ](https://github.com/KEINOS/QiiTaskQuery/graphs/contributors)の `approved` が付いた PR は自動的にマージされます。
 - テスト:
     - `docker-compose` がインストールされていれば、事前にローカルでテストできます。
-
     ```bash
     docker-compose run validator ./query.schema.json ./query.json
     ```
+- バージョニング・ルール:
+    - メジャー ... マイナーバージョンが 10 を超えた場合
+    - マイナー ... JSON スキーマに変更があった場合
+    - パッチ ..... 質問が変更された場合
 
 ## ライセンス
 
