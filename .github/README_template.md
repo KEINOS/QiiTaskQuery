@@ -1,5 +1,6 @@
 [![IsValidJSON](https://github.com/KEINOS/QiiTaskQuery/actions/workflows/validate_json.yaml/badge.svg)](https://github.com/KEINOS/QiiTaskQuery/actions/workflows/validate_json.yaml)
 [![](https://img.shields.io/badge/IPFS-%%IPFS_CID%%-blue?logo=ipfs)](https://ipfs.io/ipfs/%%IPFS_CID%% "IPFS Gateway")
+[![](https://img.shields.io/badge/Codespaces-compatible-blue?logo=github)](https://github.dev/KEINOS/QiiTaskQuery "オンラインで VSCode を起動する")
 
 # QiiTask Query
 
@@ -27,7 +28,7 @@ QiiTask コマンドに同梱される質問一覧専用のリポジトリです
 - バージョニング・ルール:
     - メジャー ... マイナーバージョンが 10 を超えた場合
     - マイナー ... JSON スキーマに変更があった場合
-    - パッチ ..... 質問が変更された場合
+    - パッチ ..... 質問やドキュメントが更新された場合
 
 ## ライセンス
 
